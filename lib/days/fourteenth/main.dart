@@ -63,7 +63,7 @@ double second(List<String> lines) {
             }
             final toFront = direction == Direction.N;
             currentLines = columns.map((col) => shift(col, toFront)).toList();
-          case Direction.E || Direction.W:
+          case Direction.W || Direction.E:
             final rows = List.generate(length, (_) => "");
             for (final col in currentLines) {
               for (int i = 0; i < length; i++) {
@@ -93,7 +93,7 @@ double second(List<String> lines) {
   return columns.fold(0, (acc, e) => acc + countWeight(e));
 }
 
-enum Direction { N, W, S, E }
+enum Direction { N, E, S, W }
 
 extension on Direction {
   Direction get next => switch (this) {
